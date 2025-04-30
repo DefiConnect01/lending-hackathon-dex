@@ -11,6 +11,7 @@ const LoanTable = () => {
     useTable({ columns: voteTableColumns, data: voteData });
   const menuItems = [
       { label: 'Create Loan', href: '/Rwa-loan' },
+      { label: 'Loans', href: '/?auction=false' },
       { label: 'Auction', href: '/?auction=true' },
       { label: 'Pay Loan', href: '/repay-loan' },
     ]
