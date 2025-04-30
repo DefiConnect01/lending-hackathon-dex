@@ -16,7 +16,7 @@ import LoanExchange from "./LoanExchange";
 import SearchBar from "../search/SearchBar";
 
 
-const TransactionLoan = () => {
+const RepayTransaction = () => {
   const {
     selectedFromToken,
     selectedToToken,
@@ -83,8 +83,8 @@ const TransactionLoan = () => {
     }
 
     switch (transactionState) {
-      case "idle": return "Add Liquidity";
-      case "sending": return "Adding Liquidity...";
+      case "idle": return "Repay Loan";
+      case "sending": return "Repaying Loan...";
       case "confirming": return "Confirming Transaction...";
       case "confirmed": return "Transaction Complete";
       case "error": return "Try Again";
@@ -159,12 +159,12 @@ const TransactionLoan = () => {
           </Link>
       </div>
 
-      <div className="w-full flex justify-center items-center my-4">
+      {/* <div className="w-full flex justify-center items-center my-4">
         <SearchBar parameterFormat={parameterFormat}
           onAnalysisComplete={handleAnalysisComplete} placeholder="Set Loan with AI analysis..."/>
-      </div>
+      </div> */}
 
-      <h1 className="font-semibold text-3xl text-center mb-3">Create Loan</h1>
+        <h1 className="font-semibold text-3xl text-center mb-3">Repay Loan</h1>
       <div className="shadow-glow shadow-glow-hover ml-[50%] bg-[hsla(0,1%,75%,.4)] border-2 dark:border-[#0A0D26] dark:bg-[#060A1A] text-lightText rounded-2xl dark:text-darkText transform translate-x-[-50%] mt-4 px-2 py-1 w-[95vw] max-w-[450px] flex flex-col sm:gap-4 gap-2">
         <div className="p-2">
             <LoanExchange
@@ -177,6 +177,7 @@ const TransactionLoan = () => {
             setLoanValue={setCollateralValue}
             selectedToken={selectedFromToken}
             loanValue={collateralValue}
+            readOnly={true}
           />
           <div className="my-4"></div>
             <LoanExchange
@@ -189,6 +190,7 @@ const TransactionLoan = () => {
             setLoanValue={setLoanValue}
             selectedToken={selectedToToken}
             loanValue={loanValue}
+            readOnly={true}
           />
           <div className="my-4"></div>
           <LoanDate
@@ -252,4 +254,4 @@ const TransactionLoan = () => {
 
 
 
-export default TransactionLoan;
+export default RepayTransaction;

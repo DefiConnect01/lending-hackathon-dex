@@ -3,11 +3,10 @@ import { FaCalendarDay } from "react-icons/fa";
 import moment from "moment";
 import { PiCoinsBold } from "react-icons/pi";
 
-const LoanInput = ({
+const CollateralInput = ({
   setLoanValue,
   selectedToken,
-  loanValue = 0, 
-  readOnly = false
+  loanValue
 }) => {
 
   return (
@@ -18,7 +17,7 @@ const LoanInput = ({
         <div className="flex items-center justify-between mb-2">
 
           <div className="flex items-start justify-start flex-col flex-1 gap-2">
-            <p className="w-32 text-left">Loan Amount</p>
+            <p className="w-32 text-left">Collateral Amount</p>
             <div className="p-3 border-2 border-primary dark:border-white rounded-full">
               <PiCoinsBold className="text-3xl text-primary dark:text-white"/>
             </div>
@@ -26,22 +25,14 @@ const LoanInput = ({
 
 
           <div className="flex items-end justify-end flex-col">
-            <p>Balance: 0.0</p>
-            {!readOnly ? ( 
-              <input 
-              type="number" 
-              className="bg-inherit w-2/3 rounded-lg sm:p-2 p-1 text-right text-3xl font-semibold text-primary dark:text-textGray" 
-              placeholder="0.00"
-              value={loanValue}
-              onChange={(e) => setLoanValue(e.target.value)}
-              />
-            ): (
-              <div>
-                <p className="bg-inherit w-2/3 rounded-lg sm:p-2 p-1 text-right text-3xl font-semibold text-primary dark:text-textGray">
-                  {loanValue}
-                </p>
-              </div>
-            )}
+          <p>Balance: 0.0</p>
+            <input 
+            type="number" 
+            className="bg-inherit w-1/2 rounded-lg sm:p-2 p-1 text-right text-3xl font-semibold text-primary dark:text-textGray" 
+            placeholder="0.00"
+            value={loanValue || ""}
+            onClick={(e) => setLoanValue(e.target.value)}
+            />
             <p className="font-bold ">{selectedToken?.symbol || "DCC"}</p>
           </div>
 
@@ -54,4 +45,4 @@ const LoanInput = ({
   );
 };
 
-export default LoanInput;
+export default CollateralInput;

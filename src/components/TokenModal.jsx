@@ -93,7 +93,7 @@ const SelectTokenModal = ({
         "symbol": "ETH",
         "address": "ETH",
         "decimals": 18,
-        "chainId": 66665,
+        "chainId": 50002,
         "logoURI": "https://i.ibb.co/rGJ8WyX/eth-logo.png"
       };
 
@@ -111,7 +111,7 @@ const SelectTokenModal = ({
           // Add chainId to all tokens
           const updatedToken = {
             ...token,
-            chainId: 66665
+            chainId: 50002
           };
 
           // Rename logo_url to logoURI if it exists
@@ -126,7 +126,7 @@ const SelectTokenModal = ({
           }
           // Add fallback logo for tokens without logoURI
           else if (!updatedToken.logoURI) {
-            updatedToken.logoURI = "/creator.png";
+            updatedToken.logoURI = "";
           }
 
           return updatedToken;
@@ -241,7 +241,8 @@ const SelectTokenModal = ({
 
           <div className="max-h-[60vh] overflow-y-auto">
             <div className="flex flex-col gap-2">
-              {filteredTokens.map((token) => (
+              {/* {filteredTokens.map((token) => ( */}
+              {tokenList.map((token) => (
                 <TokenWithBalance
                   key={token.address}
                   token={token}

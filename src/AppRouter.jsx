@@ -4,10 +4,11 @@ import App from './App';
 import TransactionHistory from './components/TransactionHistory';
 import TransactionMenu from './components/TransactionMenu';
 import LiquidityMenu from './components/LiquidityMenu';
-import TransactionLock from './components/lock/TransactionLock';
+// import TransactionLock from './components/lock/TransactionLock';
 // import TransactionBribe from './components/vote/TransactionBribe';
 import TransactionLoan from './components/loan/TransactionLoan';
 import TransactionChain from './components/cross-chain/TransactionChain';
+import RepayTransaction from './components/loan/RepayTransaction';
 // import ZNSRegister from './components/ZNSRegister';
 
 function AppRouter() {
@@ -27,14 +28,17 @@ function AppRouter() {
                     <Route path="liquidity" element={<>
                         <LiquidityMenu />
                     </>} />
-                    <Route path="lock" element={<>
+                    {/* <Route path="lock" element={<>
                         <TransactionLock />
-                    </>} />
+                    </>} /> */}
                     {/* <Route path="bribe" element={<>
                         <TransactionBribe />
                     </>} /> */}
-                    <Route path="loan" element={<>
+                    <Route path="Rwa-loan" element={<>
                         <TransactionLoan />
+                    </>} />
+                    <Route path='repay-loan' element={<>
+                        <RepayTransaction />
                     </>} />
                     <Route path="cross-chain" element={<>
                         <TransactionChain />

@@ -6,18 +6,18 @@ import "./index.css";
 import AppKitProvider  from "./context/wagmi";
 import AppContext from "./context/appContext";
 import ToastProvider from "./components/shared/ToastProvider";
-import ZNSProvider from "./context/znsContext";
+// import ZNSProvider from "./context/znsContext";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <AppKitProvider>
 
       <AppContext>  
-        <ZNSProvider > 
+        {/* <ZNSProvider >  */}
          <ToastProvider /> 
 
         <AppRouter />
-        </ZNSProvider>
+        {/* </ZNSProvider> */}
       </AppContext>
     </AppKitProvider>
   </React.StrictMode>

@@ -10,7 +10,7 @@ export default function AppContext({ children }) {
   const [selectedFromToken, setSelectedFromToken] = useState(tokenList[0]);
   const [selectedToToken, setSelectedToToken] = useState(tokenList[1]);
 
-  const [fromChain, setFromChain] = useState("CYBRIA");
+  // const [fromChain, setFromChain] = useState("CYBRIA");
   const [selectedToken, setSelectedToken] = useState("ETH");
   // const [fromChain, setFromChain] = useState("U2U");
   // const [selectedToken, setSelectedToken] = useState("ETH");
@@ -23,8 +23,8 @@ export default function AppContext({ children }) {
       selectedToToken,
       setSelectedFromToken,
       setSelectedToToken,
-      fromChain, 
-      setFromChain, 
+      // fromChain, 
+      // setFromChain, 
       selectedToken }}
     >
       {children}

@@ -30,6 +30,7 @@
     "debounce": "^1.2.1",
     "ethers": "^6.13.4",
     "flux": "^4.0.4",
+    "lucide-react": "^0.503.0",
     "mbox": "^0.1.2",
     "mobx": "^6.13.5",
     "mobx-react": "^9.2.0",

@@ -26,25 +26,25 @@ import SearchBar from "./search/SearchBar";
 //   ETHEREUM: 1
 // };
 
-const CHAIN_IDS = {
-  CYBRIA: 6661,
-  BASE_SEPOLIA: 84532,
-  ETHEREUM: 1
-};
+// const CHAIN_IDS = {
+//   CYBRIA: 6661,
+//   BASE_SEPOLIA: 84532,
+//   ETHEREUM: 1
+// };
 
 
-const TOKENS = {
-  CYBRIA: {
-    CYBA: "0x95622Fce49d65D1101f6FDa8b6325459A6188E52",
-    // USDT: "0x102bd5D18b2f6800ef4dcaF5fCe131fbb52aeBA4",
-  },
-  BASE_SEPOLIA: {
-    CYBA: "0xE5a4574B92A3D9528CFE9FC1a02F4983dBFd8aa1",
-    // USDT: "0xd1e728572AD0F0Bd8AD9EEf614C353CdE527929B",
-  }, ETHEREUM:{
-    CYBA: "0x1063181dc986F76F7eA2Dd109e16fc596d0f522A"
-  }
-};
+// const TOKENS = {
+//   CYBRIA: {
+//     CYBA: "0x95622Fce49d65D1101f6FDa8b6325459A6188E52",
+//     // USDT: "0x102bd5D18b2f6800ef4dcaF5fCe131fbb52aeBA4",
+//   },
+//   BASE_SEPOLIA: {
+//     CYBA: "0xE5a4574B92A3D9528CFE9FC1a02F4983dBFd8aa1",
+//     // USDT: "0xd1e728572AD0F0Bd8AD9EEf614C353CdE527929B",
+//   }, ETHEREUM:{
+//     CYBA: "0x1063181dc986F76F7eA2Dd109e16fc596d0f522A"
+//   }
+// };
 
 const TransactionInterface = () => {
   const { setSelectTokenModal, isDarkMode } = useOutletContext();
@@ -121,26 +121,26 @@ const TransactionInterface = () => {
   });
 
   // Contract reads
-  const { data: allowance } = useReadContract({
-    address: TOKENS[fromChain][selectedToken],
-    abi: [
-      {
-        constant: true,
-        inputs: [
-          { name: "_owner", type: "address" },
-          { name: "_spender", type: "address" },
-        ],
-        name: "allowance",
-        outputs: [{ name: "", type: "uint256" }],
-        type: "function",
-      },
-    ],
-    functionName: "allowance",
-    args: [
-      address,
-      fromChain === "CYBRIA" ? cybriaAddress : ethereumAddress,
-    ],
-  });
+  // const { data: allowance } = useReadContract({
+  //   // address: TOKENS[fromChain][selectedToken],
+  //   abi: [
+  //     {
+  //       constant: true,
+  //       inputs: [
+  //         { name: "_owner", type: "address" },
+  //         { name: "_spender", type: "address" },
+  //       ],
+  //       name: "allowance",
+  //       outputs: [{ name: "", type: "uint256" }],
+  //       type: "function",
+  //     },
+  //   ],
+  //   functionName: "allowance",
+  //   args: [
+  //     address,
+  //     fromChain === "CYBRIA" ? cybriaAddress : ethereumAddress,
+  //   ],
+  // });
 
   useEffect(() => {
     setSwapList([selectedFromToken, selectedToToken])
@@ -323,25 +323,25 @@ const TransactionInterface = () => {
     }
   }, [fromBalanceData]);
 
-  useEffect(() => {
-    if (fromChain === "CYBRIA" && selectedToken === "CYBA") {
-      setNeedsApproval(false);
-      return;
-    }
+  // useEffect(() => {
+  //   if (fromChain === "CYBRIA" && selectedToken === "CYBA") {
+  //     setNeedsApproval(false);
+  //     return;
+  //   }
 
-    if (!amount || !allowance) {
-      setNeedsApproval(true);
-      return;
-    }
+  //   if (!amount || !allowance) {
+  //     setNeedsApproval(true);
+  //     return;
+  //   }
 
-    try {
-      const parsedAmount = parseEther(amount.toString());
-      setNeedsApproval(allowance < parsedAmount);
-    } catch (err) {
-      // console.error("Error parsing amount:", err);
-      setNeedsApproval(true);
-    }
-  }, [allowance, amount, fromChain, selectedToken]);
+  //   try {
+  //     const parsedAmount = parseEther(amount.toString());
+  //     setNeedsApproval(allowance < parsedAmount);
+  //   } catch (err) {
+  //     // console.error("Error parsing amount:", err);
+  //     setNeedsApproval(true);
+  //   }
+  // }, [allowance, amount, fromChain, selectedToken]);
 
   useEffect(() => {
     if (isLoading) setTransactionState("confirming");

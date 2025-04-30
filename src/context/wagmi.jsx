@@ -38,6 +38,19 @@ const createNetworks = async () => {
   //   imagesrc: cybaLogoUrl
   // };
 
+
+
+  const pharosDevnet = {
+    id: "eip155:50002",
+    name: "Pharos Devnet",
+    chainId: 50002,
+    chainNamespace: "eip155",
+    currency: "ETH",
+    explorerUrl: "https://pharosscan.xyz/",
+    rpcUrl: "https://devnet.dplabs-internal.com",
+    // rpcUrl: `https://66665.rpc.thirdweb.com/${import.meta.env.VITE_THIRDWEB_SECRET_KEY}`,
+    imagesrc: "/creator.png"
+  };
   const creatorTestnet = {
     id: "eip155:66665",
     name: "Creator Testnet",
@@ -64,7 +77,7 @@ const createNetworks = async () => {
 
  
 
-  return [u2uTestnet, creatorTestnet];
+  return [pharosDevnet];
 };
 const AppKitProvider = ({ children }) => {
   const [networks, setNetworks] = React.useState([]);

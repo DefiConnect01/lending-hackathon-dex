@@ -7,7 +7,7 @@ import * as actions from './actions'
 import * as queries from './graph-queries'
 
 
-let isTestnet = import.meta.env.VITE_PUBLIC_CHAINID == 66665
+let isTestnet = import.meta.env.VITE_PUBLIC_CHAINID == 50002;
 console.log({
   isTestnet
 })
@@ -15,7 +15,8 @@ console.log({
 // URLS
 let scan, cont;
 if (isTestnet) {
-  scan = 'https://explorer.creatorchain.io/'
+  // scan = 'https://explorer.creatorchain.io/'
+    scan = 'https://pharosscan.xyz/'
   cont = contractsTestnet
 } else {
   scan = 'https://polygonscan.com/'
@@ -45,64 +46,36 @@ export const BLACK_LIST_TOKENS = [
 
 export const BASE_ASSETS_WHITELIST = [
   {
-    id: "0x6D25D76F57ec8292AC3caF3BbCB54E4524FB0885",
-    address: "0x6D25D76F57ec8292AC3caF3BbCB54E4524FB0885",
-    chainId: 66665,
-    symbol: "EDS",
+    id: "0xDACb984BA1b33B555566819c8a00Dd3E2E723D36",
+    address: "0xDACb984BA1b33B555566819c8a00Dd3E2E723D36",
+    chainId: 50002,
+    symbol: "DCC",
   },
-  {
-    id: "0x9752eFc4717A0CBbbd8DF45E2232833cBae1b5eB",
-    address: "0x9752eFc4717A0CBbbd8DF45E2232833cBae1b5eB",
-    chainId: 66665,
-    symbol: "TSL",
-  },
+  
   {
     id: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
     address: "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE",
-    chainId: 66665,
+    chainId: 50002,
     symbol: "ETH",
   },
   {
-    id: "0xB0517790d29753429D63eFe95be5879EDc8c3311",
-    address: "0xB0517790d29753429D63eFe95be5879EDc8c3311",
-    chainId: 66665,
+    id: "0x3642A6A166D3cE24c7255E03b74F61A449B14927",
+    address: "0x3642A6A166D3cE24c7255E03b74F61A449B14927",
+    chainId: 50002,
     symbol: "USDT",
-  },
-  {
-    id: "0xE0870ba18492E46a8137daE711d583aae26E7337",
-    address: "0xE0870ba18492E46a8137daE711d583aae26E7337",
-    chainId: 66665,
-    symbol: "USDC.e",
-  },
-  {
-    id: "0xD0015150ef225D6762E8adBD682B4D7e941846D6",
-    address: "0xD0015150ef225D6762E8adBD682B4D7e941846D6",
-    chainId: 66665,
-    symbol: "DAI",
-  },
-  {
-    id: "0x33950C41c72D1a8c559aE312a81F9DA3e42D09D4",
-    address: "0x33950C41c72D1a8c559aE312a81F9DA3e42D09D4",
-    chainId: 66665,
-    symbol: "BTC",
-  },
+  }
+  
 ];
 
 export const ROUTE_ASSETS = [
   {
-    name: "Eddison",
-    symbol: "EDS",
-    address: "0x6D25D76F57ec8292AC3caF3BbCB54E4524FB0885",
+    name: "DeFi Connect Token",
+    symbol: "DCC",
+    address: "0xDACb984BA1b33B555566819c8a00Dd3E2E723D36",
     decimals: 18,
     logoURI: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png"
   },
-  {
-    name: "Tesla",
-    symbol: "TSL",
-    address: "0x9752eFc4717A0CBbbd8DF45E2232833cBae1b5eB",
-    decimals: 18,
-    logoURI: "https://i.ibb.co/rGJ8WyX/eth-logo.png"
-  },
+  
   {
       name: "Ether",
       symbol: "ETH",
@@ -113,32 +86,11 @@ export const ROUTE_ASSETS = [
   {
       name: "USDT",
       symbol: "USDT",
-      address: "0xB0517790d29753429D63eFe95be5879EDc8c3311",
-      decimals: 6,
-      logoURI: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png"
-  },
-  {
-      name: "Bridged USDC",
-      symbol: "USDC.e",
-      address: "0xE0870ba18492E46a8137daE711d583aae26E7337",
-      decimals: 6,
-      logoURI: "https://coin-images.coingecko.com/coins/images/6319/large/usdc.png?1696506694"
-  },
-  {
-      name: "DAI",
-      symbol: "DAI",
-      address: "0xD0015150ef225D6762E8adBD682B4D7e941846D6",
+      address: "0x3642A6A166D3cE24c7255E03b74F61A449B14927",
       decimals: 18,
-      logoURI: "https://i.ibb.co/rGJ8WyX/eth-logo.png"
-  },
-  {
-      name: "BTC",
-      symbol: "BTC",
-      address: "0x33950C41c72D1a8c559aE312a81F9DA3e42D09D4",
-      decimals: 8,
-      logoURI: "https://i.ibb.co/rGJ8WyX/eth-logo.png"
+      logoURI: "https://raw.githubusercontent.com/trustwallet/assets/master/blockchains/ethereum/assets/0xdAC17F958D2ee523a2206206994597C13D831ec7/logo.png"
   }
-];
+]
 
 // hardcoded routes for taxable tokens
 export const DIRECT_SWAP_ROUTES = {
@@ -157,8 +109,8 @@ export const ALLOWED_DUPLICATE_SYMBOLS = [
   "FXS",
 ]
 
-export const DEFAULT_ASSET_FROM = "0x6D25D76F57ec8292AC3caF3BbCB54E4524FB0885"
-export const DEFAULT_ASSET_TO = "0x9752eFc4717A0CBbbd8DF45E2232833cBae1b5eB"
+export const DEFAULT_ASSET_FROM = "0xF8A37509C8a1ee397e8585A4C84B02358a2240A8"
+export const DEFAULT_ASSET_TO = "0xDACb984BA1b33B555566819c8a00Dd3E2E723D36"
 
 export const GAS_MULTIPLIER = 1.3
  
